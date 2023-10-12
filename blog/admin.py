@@ -4,7 +4,7 @@ from flask_admin.base import AdminIndexView
 from flask_admin.contrib.pymongo import ModelView
 from wtforms import form, fields, validators
 from flask_simplelogin import login_required
-import slugify
+from slugify import slugify
 from blog.database import mongo
 
 
