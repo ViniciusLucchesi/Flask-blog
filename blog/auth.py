@@ -24,13 +24,20 @@ def create_user(**data: dict) -> dict[str, str|bool]:
     
 
 
-def validate_login(**data: dict) -> bool:
-    """Check if user exists and password is correct."""
-    user = mongo.db.users.find_one({"username": data['username']})
-    if user and check_password_hash(user['password'], data['password']):
-        return True
-    return False
+def validate_login(data: dict) -> bool:
+    """
+    Check if user exists and password is correct.
 
+    RETURNS:
+        True -> User exists and password is correct.\n
+        False -> User does not exist or password is incorrect.
+    """
+    if not data['username'] and not data['password']:
+        raise ValueError('Username and password are required!')
+
+    db_user = mongo.db.users.find_one({"username": data['username']})
+    return db_user and check_password_hash(db_user['password'], data['password'])
+    
 
 def configure(app):
     SimpleLogin(app, login_checker=validate_login)
