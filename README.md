@@ -1,4 +1,30 @@
-## Flask Blog
+<div align='center'>
+
+<div style='background: indigo; color: #fff; border-radius: 8px;'>
+
+# Flask Blog
+
+</div>
+
+Este projeto é quase idêntico ao que o professor Camalionte fez em sala de aula.
+
+[Installations](#building-setuppy) - [Running](#running-flask-app) - [Secret_Key](#generating-secret-key) -  
+
+</br>
+</br>
+
+</div>
+
+### Building setup.py
+
+```bash
+pip install -e .
+```
+
+Certifique-se de estar no diretório raíz
+
+</br>
+
 
 ### Running flask app
 
@@ -10,13 +36,7 @@ export FLASK_APP=blog.app:create_app
 flask run
 ```
 
-### Building setup.py
-
-```bash
-pip install -e .
-```
-
-Certifique-se de estar no diretório raíz
+</br>
 
 
 ### Generating secret key
@@ -24,6 +44,8 @@ Certifique-se de estar no diretório raíz
 ```bash
 python -c "import secrets; print(secrets.token_hex())"
 ```
+
+</br>
 
 
 ### Exercício
