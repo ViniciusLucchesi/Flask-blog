@@ -4,6 +4,7 @@ from flask_admin.base import AdminIndexView
 from flask_admin.contrib.pymongo import ModelView
 from wtforms import form, fields, validators
 from flask_simplelogin import login_required
+import slugify
 from blog.database import mongo
 
 
@@ -21,6 +22,12 @@ class PostForm(form.Form):
 class AdminPosts(ModelView):
     column_list = ['title', 'slug', 'content', 'published']
     form = PostForm
+
+    def on_model_change(self, form, post, is_created):
+        post['slug'] = slugify(form.title.data)
+
+        if is_created:
+            post['date'] = datetime.now()
 
 
 def configure(app):
