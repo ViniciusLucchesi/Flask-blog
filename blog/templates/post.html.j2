@@ -1,0 +1,10 @@
+{% extends 'base.html.j2' %}
+
+{% block headline %}{{post.title}}{% endblock %}
+
+{% block content %}
+    <p>{{ markdown(post.content)}}</p>
+    <small>{{post.date | format_date }}</small>
+{% endblock %}
+
+{% block footer %} {{post.author}} {% endblock %}

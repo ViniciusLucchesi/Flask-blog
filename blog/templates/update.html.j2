@@ -1,0 +1,18 @@
+{% extends 'base.html.j2' %}
+
+{% block headline %}{{title}}{% endblock %}
+
+{% block content %}
+    <form action="/{{route}}" method="post">
+        <label for="title">Title:</label><br/>
+        <input type="text" name="title" /><br/>
+        
+        <label for="content">Content:</label><br/>
+        <textarea name="content" cols="30" rows="5"></textarea><br/>
+        
+        <label for="title">Title:</label><br/>
+        <input type="text" name="title" /><br/>
+        
+        <input type="submit" value="{{button}}" />
+    </form>
+{% endblock %}

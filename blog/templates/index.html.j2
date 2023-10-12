@@ -1,0 +1,11 @@
+{% extends 'base.html.j2' %}
+
+{% block headline %} Blog Posts {% endblock %}
+    
+{% block content %}
+    <ul>
+        {%- for post in posts %}
+            <li><a href="{{url_for('post.detail', slug=post.slug)}}">{{post.title}}</a></li>
+        {%- endfor %}
+    </ul>
+{% endblock %}

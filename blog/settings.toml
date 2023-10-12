@@ -1,0 +1,11 @@
+[default]
+title = 'Agendas de contato'
+mongo_uri = 'mongodb://localhost:27017/mongo-blog'
+secret_key = '3be1f4c4a32860145283a7292f5f5b1594759498e17d96b3eb9ed65ba60860e4'
+extensions = [
+    'blog.database:configure',
+    'blog.commands:configure',
+    'blog.views:configure',
+    'blog.plugins:configure',
+    'blog.auth:configure',
+]
